@@ -7,8 +7,10 @@
 
 export function get(url, params={}, headers={}){
     if (process.env.NODE_ENV === 'development') {
+      console.log('development')
       
     }else if (process.env.NODE_ENV === 'production') {
+      console.log('production')
       url = '/blb1'+url
     }
     return new Promise((resolve, reject) => {

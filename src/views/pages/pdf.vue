@@ -70,7 +70,9 @@ export default {
         }
          this.$get(this.HOST + '/hsbg/hsbginfo?uid=-1&ticket=5e8f1182ef6eb01b8d8e364e5c0e653c&_=1612289189506&hospitalcode=188282&idcardno='+this.iD+'&vtel='+this.tel+'&vname='+this.name).then((res) =>{
           if(res.PDFPath){
-            this.$router.push({ path: '/pdfImg' ,query: {key: res.PDFPath,}})
+            var arr=JSON.stringify(res)
+            // this.$router.push({ path: '/pdfImg?obj=+encodeURIComponent(arr))
+            this.$router.push("/pdfImg?key="+encodeURIComponent(arr))
           }else{
              this.$router.push({ path: '/pdfImg' ,query: {key: ''}})
           }
